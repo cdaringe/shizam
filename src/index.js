@@ -25,8 +25,8 @@ utils.configureHook('pre-commit', ['validate', 'lint', 'test'])
 
 const toInstallDev = getMissingDevDependencies(pkgJSON, app.toInstallDevPkgs)
 if (toInstallDev && toInstallDev.length) {
-  console.log('installing coins-* ecosystem dep pkgs into your project...') // eslint-disable-line
+  console.log('installing shizam-* ecosystem dep pkgs into your project...') // eslint-disable-line
   installDev(app.root, toInstallDev)
 } else {
-  console.log('project has all coins-* dev packages installed :)') // eslint-disable-line
+  console.log('project has all shizam-* dev packages installed :)') // eslint-disable-line
 }
