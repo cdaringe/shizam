@@ -1,7 +1,7 @@
 {
   "name": "shizam",
   "version": "0.0.1",
-  "description": "configures a package to fall inline with cdaringe standards",
+  "description": "scaffold your npm/node project with some practical hooks/scripts",
   "main": "src/index.js",
   "repository": {
     "type": "git",
