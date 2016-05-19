@@ -1,0 +1,32 @@
+{
+  "name": "shizam",
+  "version": "0.0.0",
+  "description": "configures a package to fall inline with cdaringe standards",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdaringe/shizam.git"
+  },
+  "dependencies": {
+    "commander": "^2.9.0"
+  },
+  "devDependencies": {
+    "tape": "^4.5.1"
+  },
+  "scripts": {
+    "install": "node bin/install.js && node src/index.js",
+    "preversion": "git checkout master && git pull && npm ls",
+    "publish-patch": "npm run preversion && npm version patch && git push origin master --tags && npm publish",
+    "publish-minor": "npm run preversion && npm version minor && git push origin master --tags && npm publish",
+    "publish-major": "npm run preversion && npm version major && git push origin master --tags && npm publish",
+    "test": "node test/",
+    "validate": "npm ls"
+  },
+  "author": "cdaringe",
+  "license": "ISC",
+  "pre-commit": [
+    "validate",
+    "lint",
+    "test"
+  ]
+}
