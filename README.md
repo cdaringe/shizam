@@ -32,7 +32,7 @@ this module scaffolds the following topics using the following packages:
   - doc generation (`jsdoc`)
   - doc publishing to github.io (`gh-pages`, publishes on `npm postpublish`)
 - package versioning
-  - automated version bumping, release publishing, and npm publishing via `npm run publish-minor/patch/major`
+  - automated version bumping, github release publishing, and npm publishing via `npm run publish-minor/patch/major`
 
 all required devDependencies are installed whenever `shizam` is installed/updated/etc iff they are missing.
 
