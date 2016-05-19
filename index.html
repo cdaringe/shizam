@@ -48,27 +48,28 @@
 
     <section class="readme">
         <article><h1>shizam</h1><p>rapidly scaffold your npm package with testing, coverage, and linting scripts, and auto-install dev packages to make those scripts possible!</p>
-<h2>why</h2><p>writing boilerplate code over and over stinks.  many of us start new projects <em>all the time</em> and want to easily distribute the structure and methodologies used in all of our projects.  <code>shizam</code>, in it's tiny form, just helps scaffold a common project structure and best of best-known-methods via npm scripts.</p>
-<p>&quot;ugh, what's the problem with just doing these things on my own?&quot;  nothing!  i, however, found that <a href="http://imgs.xkcd.com/comics/is_it_worth_the_time.png">xkcd justified the effort</a>. :)  it's really great to enter a project, explicitly add <em>just one package</em>, and have a very basic, very common set of scripts and tooling ready-to-rock. #not-a-framework :)</p>
+<h2>why</h2><p>writing boilerplate code over and over stinks.  many of us start new projects <em>all the time</em> and want to easily distribute the structure and methodologies used in all of our projects.  this tiny package simply helps scaffold a common project structure and best of best-known-methods via npm scripts.</p>
+<p>&quot;ugh, what's the problem with just doing these things on my own?&quot;</p>
+<p>nothing!  i, however, found that <a href="http://imgs.xkcd.com/comics/is_it_worth_the_time.png">xkcd justified the effort</a>. it's great to start a project, install <em>just one package</em> (this one), and automatically have a basic set of scripts and tooling ready-to-roll. #not-a-framework.</p>
 <h2>how</h2><p>Specifically, this package does the following to your project:</p>
 <ul>
 <li>install common npm scripts (e.g. <code>&quot;test&quot;</code>, <code>&quot;prepublish&quot;</code>, etc)</li>
 <li>installs common pre-commit hooks (e.g. validate, lint, test)</li>
 <li>installs packages that are required for the above tasks to be successful</li>
 </ul>
-<p>This module also is OK with you deviating your own scripts to your own requirements, however you see fit.  On re-install or update, it will NOT squash your modified scripts.  It will, however, continue to install dev dependencies that it thinks are mandatory!</p>
+<p>this package lets you modify the default scripts to your own requirements post-install. on re-install or update, it will NOT squash your modified scripts.  it will, however, continue to install dev dependencies that it thinks are mandatory on subsequent installs.</p>
 <h2>what opinions are assumed?</h2><p>this module scaffolds the following topics using the following packages:</p>
 <ul>
-<li>precommit hooks<ul>
+<li>git precommit hooks<ul>
 <li>by default, attempts to <code>npm ls</code>, lint, and test (with coverage enforcement) on each commit</li>
 </ul>
 </li>
 <li>linting (<code>standard</code>)</li>
 <li>testing (<code>tape</code>)</li>
-<li>coverage (<code>nyc</code>, specifically because it does multi-process coverage better than istanbul)</li>
+<li>coverage (<code>nyc</code>, specifically because it does multi-process coverage better than istanbul alone)</li>
 <li>docs<ul>
 <li>doc generation (<code>jsdoc</code>)</li>
-<li>doc publishing to github.io (<code>gh-pages</code>, publishes docs on <code>npm postpublish</code>)</li>
+<li>doc publishing to github.io (<code>gh-pages</code>, publishes on <code>npm postpublish</code>)</li>
 </ul>
 </li>
 <li>package versioning<ul>
@@ -76,7 +77,7 @@
 </ul>
 </li>
 </ul>
-<p>all required packages are installed whenever <code>shizam</code> is installed iff they are missing.</p>
+<p>all required devDependencies are installed whenever <code>shizam</code> is installed/updated/etc iff they are missing.</p>
 <h2>usage</h2><p><code>npm i --save-dev shizam@latest</code></p>
 <p>everything else happens automatically!  and that's the point :)</p>
 <h2>contributing</h2><p>go for it.</p></article>
