@@ -22,13 +22,13 @@ This module also is OK with you deviating your own scripts to your own requireme
 this module scaffolds the following topics using the following packages:
 
 - precommit hooks
-  - by default, attempts to `npm ls`, lint, and validate on each commit
+  - by default, attempts to `npm ls`, lint, and test (with coverage enforcement) on each commit
 - linting (`standard`)
 - testing (`tape`)
 - coverage (`nyc`, specifically because it does multi-process coverage better than istanbul)
 - docs
   - doc generation (`jsdoc`)
-  - doc publishing (`gh-pages`, publishes docs on `npm postpublish`)
+  - doc publishing to github.io (`gh-pages`, publishes docs on `npm postpublish`)
 - package versioning
   - automated version bumping, release publishing, and npm publishing via `npm run publish-minor/patch/major`
 
