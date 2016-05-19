@@ -12,10 +12,6 @@ const pkgJSON = require(path.resolve(app.root, 'package.json'))
 console.log('installing shizam hooks and scripts into your project...') // eslint-disable-line
 clean(app.root)
 copyIfMissing(
-  path.resolve(__dirname, '../templates/.eslintrc.js'),
-  path.resolve(app.root, '.eslintrc.js')
-)
-copyIfMissing(
   path.resolve(__dirname, '../templates/.jsdoc.json'),
   path.resolve(app.root, '.jsdoc.json')
 )
