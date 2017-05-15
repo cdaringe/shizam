@@ -1,6 +1,6 @@
 module.exports = {
   'lint': 'standard',
-  'preversion': 'git checkout master && git pull && npm ls',
+  'preversion': 'git checkout master && git pull',
   'docs:build': [
     'mkdir -p docs &&',
     'jsdoc -c .jsdoc.json src/'
