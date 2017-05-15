@@ -11,6 +11,8 @@
     "commander": "^2.9.0"
   },
   "devDependencies": {
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
     "gh-pages": "^0.11.0",
     "husky": "^0.13.3",
     "jsdoc": "^3.4.3",
@@ -21,6 +23,7 @@
     "tape": "^4.5.1"
   },
   "scripts": {
+    "cz": "git-cz",
     "install": "node bin/install.js && node src/index.js",
     "preversion": "git checkout master && git pull",
     "publish-patch": "npm run preversion && npm version patch && git push origin master --tags && npm publish",
@@ -35,5 +38,10 @@
     "precommit": "run-s lint"
   },
   "author": "cdaringe",
-  "license": "ISC"
+  "license": "ISC",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
