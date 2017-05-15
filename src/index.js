@@ -2,7 +2,6 @@
 
 const path = require('path')
 const app = require('./app')
-const clean = require('./clean')
 const logger = require('./logger')
 const copyIfMissing = require('./copy-if-missing')
 const getMissingDevDependencies = require('./get-missing-dev-deps')
@@ -11,7 +10,6 @@ const installScripts = require('./install-scripts')
 const pkgJSON = require(path.resolve(app.root, 'package.json'))
 
 logger.info('installing shizam hooks and scripts into your project...') // eslint-disable-line
-clean(app.root)
 copyIfMissing(
   path.resolve(__dirname, '../templates/.jsdoc.json'),
   path.resolve(app.root, '.jsdoc.json')

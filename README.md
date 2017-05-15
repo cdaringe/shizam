@@ -1,8 +1,8 @@
-# shizam
+# shizam 🔮⚡️
 
 ![](https://img.shields.io/badge/standardjs-%E2%9C%93-brightgreen.svg)
 
-opinionated rapidly project scaffolding for **libraries**.  one `--dev` install automatically wires:
+opinionated project scaffolding for **libraries**.  one `yarn add --dev shizam` install automatically wires:
 
 - `lint` scripts, via `standard`
 - `lint` & `test` task runs on git precommit
