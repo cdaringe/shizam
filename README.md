@@ -1,8 +1,6 @@
 # shizam
 
-![](https://i
-mg.shields.io/badge/standardjs-%E2%9C%93-brightgreen.svg) [![Green
-keeper badge](https://badges.greenkeeper.io/cdaringe/shizam.svg)](https://greenkeeper.io/)
+![](https://img.shields.io/badge/standardjs-%E2%9C%93-brightgreen.svg)
 
 opinionated rapidly project scaffolding for **libraries**.  one `--dev` install automatically wires:
 
