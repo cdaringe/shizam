@@ -6,7 +6,7 @@ const toInstallDevPkgs = require('./to-install-dev-packages')
 const app = {
   root: utils.findProjectRoot(),
   toInstallScripts: toInstallScripts,
-  toInstallDevPkgs: toInstallDevPkgs,
+  toInstallDevPkgs: toInstallDevPkgs
 }
 
 Object.assign(app, require('./parse-cli'))

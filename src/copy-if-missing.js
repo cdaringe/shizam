@@ -1,15 +1,16 @@
 'use strict'
 
-const utils = require('./utils')
-const fs = require('fs')
+var utils = require('./utils')
+var logger = require('./logger')
+var fs = require('fs')
 
-module.exports = (src, dest) => {
+module.exports = function copyIfMissing (src, dest) {
   try {
     fs.lstatSync(dest)
-    console.log(`${dest} already present, skipping`)
+    logger.info(`${dest} already present, skipping`)
   } catch (err) {
     if (err.code === 'ENOENT') {
-      console.log(`writing ${dest}`)
+      logger.info(`writing ${dest}`)
       utils.copyFile(src, dest)
     } else {
       throw err

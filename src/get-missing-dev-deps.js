@@ -1,7 +1,7 @@
 'use strict'
 
 const getMissingDevDependencies = (pkgJSON, packages) => {
-  if (!pkgJSON.devDependencies) { return packages  }
+  if (!pkgJSON.devDependencies) { return packages }
   if (!packages || !packages.hasOwnProperty('length')) {
     console.warn('no devDependency packages requested') // eslint-disable-line
   }

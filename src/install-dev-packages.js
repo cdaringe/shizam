@@ -1,12 +1,15 @@
 'use strict'
-const cp = require('child_process')
-module.exports = (root, packages) => {
+
+var cp = require('child_process')
+var logger = require('./logger')
+
+module.exports = function installDevPackages (root, packages) {
   cp.exec(
-    'npm install --save-dev ' + packages.join(' '), // eslint-disable-line
+    'yarn add --dev ' + packages.join(' '),
     { cwd: root },
-    (err, stdout, stderr) => { // eslint-disable-line
-      if (err) { throw err  }
-      console.log(stdout) // eslint-disable-line
+    (err, stdout, stderr) => {
+      if (err) throw err
+      logger.info(stdout)
     }
   )
 }

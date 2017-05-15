@@ -1,9 +1,9 @@
 module.exports = [
   'standard',
-  'standard-format',
   'gh-pages',
   'jsdoc',
-  'nyc',
   'minami',
-  'tape'
+  'tape',
+  'npm-run-all',
+  'husky'
 ]

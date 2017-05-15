@@ -71,7 +71,7 @@ internals.copyDirectory = function (source, target, options) {
   internals.mkdir(target)
 
   var sources = Fs.readdirSync(source)
-  for (var i = 0, l = sources.length;  i < l; ++i) {
+  for (var i = 0, l = sources.length; i < l; ++i) {
     var sourcePath = Path.join(source, sources[i])
     var targetPath = Path.join(target, sources[i])
 
@@ -121,10 +121,7 @@ exports.findGitRoot = function (start) {
 
   if (exports.isDir(Path.join(start, '.git'))) {
     root = start
-  }
-  /* $lab:coverage:off$ */
-  // Coverage disabled here due to false positive on else if, since we have to trap the throwWarn method
-  else if (Path.dirname(start) !== start) {
+  } else if (Path.dirname(start) !== start) {
     root = exports.findGitRoot(Path.dirname(start))
   } else {
     return internals.throwWarn('Unable to find a .git directory for this project')
@@ -181,7 +178,7 @@ exports.findProjects = function (start, depth) {
     projects.push(start)
   }
 
-  for (var i = 0, il = dirs.length;  i < il; ++i) {
+  for (var i = 0, il = dirs.length; i < il; ++i) {
     var dir = dirs[i]
     var path = Path.join(start, dir)
 
@@ -193,41 +190,6 @@ exports.findProjects = function (start, depth) {
   }
 
   return projects
-}
-
-// Install the git hook as specified by `hook`.
-// For example, Validate.installHook('pre-commit')
-exports.installHooks = function (hooks, root) {
-  hooks = Array.isArray(hooks) ? hooks : [hooks]
-  var gitRoot = exports.findGitRoot(root)
-  var hookRoot = Path.join(gitRoot, '.git', 'hooks')
-  var source = Path.resolve(__dirname, '..', 'bin', 'validate.sh')
-
-  if (!exports.isDir(hookRoot)) {
-    internals.mkdir(hookRoot)
-  }
-
-  for (var i = 0, il = hooks.length;  i < il;  ++i) {
-    var hook = hooks[i]
-    var dest = Path.join(hookRoot, hook)
-
-    if (Fs.existsSync(dest)) {
-      Fs.renameSync(dest, dest + '.backup')
-    }
-
-    Fs.writeFileSync(dest, Fs.readFileSync(source), { mode: 511 })
-  }
-}
-
-// Provide a default configuration for a git hook as specified by `hook`.
-// For example, Validate.configureHook('pre-commit', ['test', 'lint'])
-exports.configureHook = function (hook, defaults, root) {
-  var packagePath = Path.join(exports.findProjectRoot(root), 'package.json')
-  var pkg = JSON.parse(Fs.readFileSync(packagePath, { encoding: 'utf8' }))
-  if (!pkg.hasOwnProperty(hook)) {
-    pkg[hook] = Array.isArray(defaults) ? defaults : [defaults]
-    Fs.writeFileSync(packagePath, JSON.stringify(pkg, null, 2), { encoding: 'utf8' })
-  }
 }
 
 // Configure a default script by name and content

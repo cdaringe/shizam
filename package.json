@@ -12,11 +12,12 @@
   },
   "devDependencies": {
     "gh-pages": "^0.11.0",
-    "jsdoc": "^3.4.0",
-    "minami": "^1.1.1",
-    "nyc": "^6.4.4",
-    "standard": "^7.1.0",
-    "standard-format": "^2.2.0",
+    "husky": "^0.13.3",
+    "jsdoc": "^3.4.3",
+    "minami": "^1.2.3",
+    "npm-run-all": "^4.0.2",
+    "run-s": "^0.0.0",
+    "standard": "latest",
     "tape": "^4.5.1"
   },
   "scripts": {
@@ -26,18 +27,13 @@
     "publish-minor": "npm run preversion && npm version minor && git push origin master --tags && npm publish",
     "publish-major": "npm run preversion && npm version major && git push origin master --tags && npm publish",
     "test": "node test/",
-    "validate": "npm ls",
-    "lint": "standard \"src/**/*.js\" \"test/**/*.js\"",
-    "lintfix": "standard-format -w",
-    "docs": "mkdir -p docs && jsdoc -c .jsdoc.json src/",
-    "deploy-docs": "gh-pages -d docs && rm -rf docs",
-    "postpublish": "npm run docs && npm run deploy-docs"
+    "docs:build": "mkdir -p docs && jsdoc -c .jsdoc.json src/",
+    "docs:clean": "rm -rf docs",
+    "docs:deploy": "gh-pages -d docs",
+    "lint": "standard",
+    "postpublish": "run-s docs:clean docs:build docs:deploy docs:clean",
+    "precommit": "run-s lint"
   },
   "author": "cdaringe",
-  "license": "ISC",
-  "pre-commit": [
-    "validate",
-    "lint",
-    "test"
-  ]
+  "license": "ISC"
 }
