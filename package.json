@@ -1,6 +1,6 @@
 {
   "name": "shizam",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "scaffold your npm/node project with some practical hooks/scripts",
   "main": "src/index.js",
   "repository": {
