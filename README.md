@@ -1,6 +1,14 @@
 # shizam
 
-rapidly scaffold your npm package with testing, coverage, and linting scripts, and auto-install dev packages to make those scripts possible!
+![](https://i
+mg.shields.io/badge/standardjs-%E2%9C%93-brightgreen.svg) [![Green
+keeper badge](https://badges.greenkeeper.io/cdaringe/shizam.svg)](https://greenkeeper.io/)
+
+opinionated rapidly project scaffolding for **libraries**.  one `--dev` install automatically wires:
+
+- `lint` scripts, via `standard`
+- `lint` & `test` task runs on git precommit
+- automatic `jsdoc` publishing, post-package publish
 
 ## why
 
@@ -12,9 +20,9 @@ nothing!  i, however, found that [xkcd justified the effort](http://imgs.xkcd.co
 
 ## how
 
-Specifically, this package does the following to your project:
+specifically, this package does the following to your project:
   - install common npm scripts (e.g. `"test"`, `"prepublish"`, etc)
-  - installs common pre-commit hooks (e.g. validate, lint, test)
+  - installs common pre-commit hooks (e.g. lint, test)
   - installs packages that are required for the above tasks to be successful
 
 this package lets you modify the default scripts to your own requirements post-install. on re-install or update, it will NOT squash your modified scripts.  it will, however, continue to install dev dependencies that it thinks are mandatory on subsequent installs.
@@ -23,22 +31,17 @@ this package lets you modify the default scripts to your own requirements post-i
 
 this module scaffolds the following topics using the following packages:
 
-- git precommit hooks
-  - by default, attempts to `npm ls`, lint, and test (with coverage enforcement) on each commit
+- git precommit hooks (`test` & `lint`). bring your own `test: ...` script.
 - linting (`standard`)
-- testing (`tape`)
-- coverage (`nyc`, specifically because it does multi-process coverage better than istanbul alone)
 - docs
   - doc generation (`jsdoc`)
   - doc publishing to github.io (`gh-pages`, publishes on `npm postpublish`)
-- package versioning
-  - automated version bumping, github release publishing, and npm publishing via `npm run publish-minor/patch/major`
 
-all required devDependencies are installed whenever `shizam` is installed/updated/etc iff they are missing.
+required devDependencies are installed whenever `shizam` is installed/updated/etc _iff_ they are missing.
 
 ## usage
 
-`npm i --save-dev shizam@latest`
+`yarn add --dev shizam`
 
 everything else happens automatically!  and that's the point :)
 
