@@ -48,38 +48,35 @@
 
 
     <section class="readme">
-        <article><h1>shizam</h1><p>rapidly scaffold your npm package with testing, coverage, and linting scripts, and auto-install dev packages to make those scripts possible!</p>
+        <article><h1>shizam</h1><p><img src="https://img.shields.io/badge/standardjs-%E2%9C%93-brightgreen.svg" alt=""></p>
+<p>opinionated rapidly project scaffolding for <strong>libraries</strong>.  one <code>--dev</code> install automatically wires:</p>
+<ul>
+<li><code>lint</code> scripts, via <code>standard</code></li>
+<li><code>lint</code> &amp; <code>test</code> task runs on git precommit</li>
+<li>automatic <code>jsdoc</code> publishing, post-package publish</li>
+</ul>
 <h2>why</h2><p>writing boilerplate code over and over stinks.  many of us start new projects <em>all the time</em> and want to easily distribute the structure and methodologies used in all of our projects.  this tiny package simply helps scaffold a common project structure and best of best-known-methods via npm scripts.</p>
 <p>&quot;ugh, what's the problem with just doing these things on my own?&quot;</p>
 <p>nothing!  i, however, found that <a href="http://imgs.xkcd.com/comics/is_it_worth_the_time.png">xkcd justified the effort</a>. it's great to start a project, install <em>just one package</em> (this one), and automatically have a basic set of scripts and tooling ready-to-roll. #not-a-framework.</p>
-<h2>how</h2><p>Specifically, this package does the following to your project:</p>
+<h2>how</h2><p>specifically, this package does the following to your project:</p>
 <ul>
 <li>install common npm scripts (e.g. <code>&quot;test&quot;</code>, <code>&quot;prepublish&quot;</code>, etc)</li>
-<li>installs common pre-commit hooks (e.g. validate, lint, test)</li>
+<li>installs common pre-commit hooks (e.g. lint, test)</li>
 <li>installs packages that are required for the above tasks to be successful</li>
 </ul>
 <p>this package lets you modify the default scripts to your own requirements post-install. on re-install or update, it will NOT squash your modified scripts.  it will, however, continue to install dev dependencies that it thinks are mandatory on subsequent installs.</p>
 <h2>what opinions are assumed?</h2><p>this module scaffolds the following topics using the following packages:</p>
 <ul>
-<li>git precommit hooks<ul>
-<li>by default, attempts to <code>npm ls</code>, lint, and test (with coverage enforcement) on each commit</li>
-</ul>
-</li>
+<li>git precommit hooks (<code>test</code> &amp; <code>lint</code>). bring your own <code>test: ...</code> script.</li>
 <li>linting (<code>standard</code>)</li>
-<li>testing (<code>tape</code>)</li>
-<li>coverage (<code>nyc</code>, specifically because it does multi-process coverage better than istanbul alone)</li>
 <li>docs<ul>
 <li>doc generation (<code>jsdoc</code>)</li>
 <li>doc publishing to github.io (<code>gh-pages</code>, publishes on <code>npm postpublish</code>)</li>
 </ul>
 </li>
-<li>package versioning<ul>
-<li>automated version bumping, github release publishing, and npm publishing via <code>npm run publish-minor/patch/major</code></li>
 </ul>
-</li>
-</ul>
-<p>all required devDependencies are installed whenever <code>shizam</code> is installed/updated/etc iff they are missing.</p>
-<h2>usage</h2><p><code>npm i --save-dev shizam@latest</code></p>
+<p>required devDependencies are installed whenever <code>shizam</code> is installed/updated/etc <em>iff</em> they are missing.</p>
+<h2>usage</h2><p><code>yarn add --dev shizam</code></p>
 <p>everything else happens automatically!  and that's the point :)</p>
 <h2>contributing</h2><p>go for it.</p></article>
     </section>
