@@ -1,5 +1,7 @@
 # shizam
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/cdaringe/shizam.svg)](https://greenkeeper.io/)
+
 rapidly scaffold your npm package with testing, coverage, and linting scripts, and auto-install dev packages to make those scripts possible!
 
 ## why
