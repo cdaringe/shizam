@@ -5,7 +5,7 @@
 opinionated project scaffolding for **libraries**.  one `yarn add --dev shizam` install automatically wires:
 
 - `lint` scripts, via `standard`
-- `lint` & `test` task runs on git precommit
+- `lint` & `test` task runs on git precommit, using `husky`
 - automatic `jsdoc` publishing, post-package publish
 
 ## why
